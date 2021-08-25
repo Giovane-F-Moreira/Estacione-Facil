@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+    	<meta charset="UTF-8">
+     	<!--Import Google Icon Font-->
+     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+     	<!--Import materialize.css-->
+     	<!-- Compiled and minified CSS -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    	<!-- Compiled and minified JavaScript -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     	<!--Let browser know website is optimized for mobile-->
+     	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+     	 
+     	<style type="text/css">
+     	 	.nav-wrapper{
+				background-color: #2bbbad;
+			}
+     	 </style>
+     	 <title>EstacionEasy App</title>
+    </head>
+
+    <body>
+      <nav>
+	    <div class="nav-wrapper">
+	      <a href="/" class="brand-logo">EstacionEasy<i class="fas fa-angle-double-down" style="margin-left: 20px;"></i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="/estacionamentos"><i class="material-icons left">location_on</i>Estacionamentos</a></li>
+	        <li><a href="/veiculos"><i class="material-icons left">directions_car</i>Veículos</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+		  <h1>Estacionamento</h1>
+	  <div class="container">
+	  
+	      <ul class="collection with-header">
+	        <li class="collection-header"><center><h5>Detalhes</h5></center></li>
+	        <li class="collection-item"><div><i class="material-icons">perm_identity</i><b> Id:              </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.id}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">sentiment_very_satisfied</i><b> Nome: </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.nome}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">phone_android</i><b> Telefone:  		 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.telefone}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">motorcycle</i><b> Valor Carro: 		 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.valorCarro}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">directions_car</i><b> Valor Moto: 	 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.ValorMoto}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">schedule</i><b> Dias e Horarios: 	 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.descricaoDiasEHorarios}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">place</i><b> UF: 					 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.uf}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">place</i><b> Cidade: 				 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.cidade}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">place</i><b> Rua: 					 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.rua}"></span></a></div></li>
+			<li class="collection-item"><div><i class="material-icons">place</i><b> Número: 				 </b> <a href="#!" class="secondary-content"><span th:text="${estacionamento.numero}"></span></a></div></li>
+	      </ul>			 
+		  
+		  <form method="post">
+			  Modelo Veiculo: <input type="text" value="" name="modelo" />
+			  Tipo:			  <select class="browser-default" name="tipo">
+    						  	<option value="Carro">Carro</option>
+    							<option value="Moto">Moto</option>
+  					 		  </select>
+  			  Placa: <input type="text" value="" name="placa" />
+			  Cor: 	   <input type="text" value="" name="cor" />
+  			  Proprietario: <input type="text" value="" name="proprietario" />
+			  CPF Proprietario: 	   <input type="text" value="" name="cpfProprietario" />
+			  <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+			  <a class="waves-effect waves-light btn" href="/estacionamentos" ><i class="material-icons left">arrow_back</i>Voltar</a>
+			</form>	  
+		</div>
+
+      
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+  </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+    	 <meta charset="UTF-8">
+     	 <!--Import Google Icon Font-->
+     	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+     	 <!--Import materialize.css-->
+     	 <!-- Compiled and minified CSS -->
+    	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    	 <!-- Compiled and minified JavaScript -->
+    	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     	 <!--Let browser know website is optimized for mobile-->
+     	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+     	 
+     	 <style type="text/css">
+     	 	.nav-wrapper{
+				background-color: #2bbbad;
+			}
+     	 </style>
+     	 <title>EstacionEasy App</title>
+    </head>
+
+    <body>
+      <nav>
+	    <div class="nav-wrapper">
+	      <a href="/" class="brand-logo">EstacionEasy<i class="fas fa-angle-double-down" style="margin-left: 20px;"></i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="/estacionamentos"><i class="material-icons left">location_on</i>Estacionamentos</a></li>
+	        <li><a href="/veiculos"><i class="material-icons left">directions_car</i>Veículos</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+		<h1>Lista de Veiculos Cadastrados</h1>
+		<table border="1" class="highlight">
+			<tr>
+				<th>Id</th>
+				<th>Modelo</th>
+				<th>Tipo</th>
+				<th>Placa</th>	
+				<th>Cor</th>
+				<th>Proprietario</th>
+				<th>CPF do proprietario</th>
+				<th>Estacionamento</th>
+			</tr>
+			<tr th:each="veiculo : ${veiculos}">
+				<td><span th:text="${veiculo.id}"></span></td>
+				<td><a th:href="@{/veiculo/{id}(id = ${veiculo.id})}">
+					<span th:text="${veiculo.modelo}"></span></a></td>
+				<td><span th:text="${veiculo.tipo}"></span></td>
+				<td><span th:text="${veiculo.placa}"></span></td>
+				<td><span th:text="${veiculo.cor}"></span></td>					
+				<td><span th:text="${veiculo.proprietario}"></span></td>
+				<td><span th:text="${veiculo.cpfProprietario}"></span></td>
+				<!-- <td><span th:text="${veiculo.estacionamento.nome}"></span></td> -->
+			</tr>				
+		</table>
+		<a class="waves-effect waves-light btn" href="/cadastrarVeiculo"><i class="material-icons left">add</i>Cadastrar Veiculo</a>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+  </html>
